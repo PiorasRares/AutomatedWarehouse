@@ -1,4 +1,5 @@
 using DataAccess.DbAccess;
+using System.Security.AccessControl;
 
 namespace ResourceManager
 {
@@ -30,6 +31,7 @@ namespace ResourceManager
 
 
             app.MapGet("/StorageType",(string description) => access.GetStorageTypes(description));
+            app.MapGet("/StorageLocation",(int storageTypeId)=> access.GetStorageLocations(storageTypeId));
 
             app.Run();
         }

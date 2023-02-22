@@ -6,20 +6,63 @@
         xmlns:local="clr-namespace:PickerApp"
         xmlns:viewModel="clr-namespace:PickerApp.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200">
+        Title="MainWindow" Height="650" Width="1200">
 
     <Window.DataContext>
         <viewModel:MainWindowViewModel/>
     </Window.DataContext>
     
     <Grid>
-        <ComboBox ItemsSource="{Binding WarehouseStorageTypes}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox ItemsSource="{Binding WarehouseStorageTypes}" SelectedItem="{Binding SelectedWarehouse}" HorizontalAlignment="Left" Margin="227,25,0,0" VerticalAlignment="Top" Width="120">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <ListView ItemsSource="{Binding WarehouseStorageLocations}" Margin="10,69,450,210">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="BlanchedAlmond" Height="50" Width="125">
+                        <Label Content="{Binding Name}"/>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+        <ListView ItemsSource="{Binding ProductionStorageLocations}" Margin="775,69,10,210">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label>
+                        <Label.Content>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat=" {0} ({1})">
+                                        <Binding Path="Name"/>
+                                        <Binding Path="TOToCount"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </Label.Content>
+                    </Label>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ComboBox ItemsSource="{Binding ProductionStorageTypes}" SelectedItem="{Binding SelectedProduction}" HorizontalAlignment="Left" Margin="922,21,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Content="Production Storage" HorizontalAlignment="Left" Margin="775,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.005,-0.22" Width="119"/>
+        <Label Content="Warehouse Storage" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" RenderTransformOrigin="-9.944,0.109" Width="139"/>
 
     </Grid>
 </Window>
