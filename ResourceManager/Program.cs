@@ -1,13 +1,19 @@
-using DataAccess.DbAccess;
+using DataAccess.Repositories;
 using System.Security.AccessControl;
 
 namespace ResourceManager
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
-            AccessLayer access = new AccessLayer();
+            StorageTypeRepository storageType = new StorageTypeRepository(new DataAccess.DataContext.Context());
+            StorageLocationRepository storageLocation = new StorageLocationRepository(new DataAccess.DataContext.Context());
+            ContainerRepository container = new ContainerRepository(new DataAccess.DataContext.Context());
+            MaterialRepository material = new MaterialRepository(new DataAccess.DataContext.Context());
+            TransferOrderRepository transferOrder = new TransferOrderRepository(new DataAccess.DataContext.Context());
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -30,8 +36,8 @@ namespace ResourceManager
             app.UseAuthorization();
 
 
-            app.MapGet("/StorageType",(string description) => access.GetStorageTypes(description));
-            app.MapGet("/StorageLocation",(int storageTypeId)=> access.GetStorageLocations(storageTypeId));
+            app.MapGet("/StorageType",(string description) => storageType.GetStorageTypes(description));
+            app.MapGet("/StorageLocation",(int storageTypeId)=> storageLocation.GetStorageLocations(storageTypeId));
 
             app.Run();
         }

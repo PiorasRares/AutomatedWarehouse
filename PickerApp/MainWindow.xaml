@@ -11,7 +11,7 @@
     <Window.DataContext>
         <viewModel:MainWindowViewModel/>
     </Window.DataContext>
-    
+
     <Grid>
         <ComboBox ItemsSource="{Binding WarehouseStorageTypes}" SelectedItem="{Binding SelectedWarehouse}" HorizontalAlignment="Left" Margin="154,14,0,0" VerticalAlignment="Top" Width="120">
             <ComboBox.ItemTemplate>
@@ -29,14 +29,14 @@
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
+
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>
-        <ListView ItemsSource="{Binding ProductionStorageLocations}" Margin="774,43,10,394">
+        <ListView ItemsSource="{Binding ProductionStorageLocations}" Margin="774,43,10,373">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label>
@@ -63,6 +63,8 @@
         </ComboBox>
         <Label Content="Production Storage" HorizontalAlignment="Left" Margin="775,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.005,-0.22" Width="119"/>
         <Label Content="Warehouse Storage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-9.944,0.109" Width="139"/>
+        <Label Content="Transfer Orders" HorizontalAlignment="Left" Margin="774,324,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.663,-0.931" Width="119"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="774,355,10,96"/>
 
     </Grid>
 </Window>

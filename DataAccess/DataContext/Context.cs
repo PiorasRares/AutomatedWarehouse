@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.DbAccess
+namespace DataAccess.DataContext
 {
-    public class Context:DbContext
+    public class Context : DbContext
     {
         public DbSet<StorageType> StorageTypes { get; set; }
         public DbSet<StorageLocation> StorageLocations { get; set; }
