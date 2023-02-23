@@ -17,12 +17,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PickerApp", "PickerApp\Pick
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlannerApp", "PlannerApp\PlannerApp.csproj", "{277C0452-93A4-44EB-A798-1A37DA0473DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{637FAC6A-6470-4B07-B80C-DD0024170E2A} = {637FAC6A-6470-4B07-B80C-DD0024170E2A}
+		{A2E49C16-E09D-4BC8-BB36-CC4A196384E7} = {A2E49C16-E09D-4BC8-BB36-CC4A196384E7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AutostoreRobot", "AutostoreRobot\AutostoreRobot.vcxproj", "{1330D103-7767-44AE-BE82-E0DE4674638D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{637FAC6A-6470-4B07-B80C-DD0024170E2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{637FAC6A-6470-4B07-B80C-DD0024170E2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceManager", "ResourceManager\ResourceManager.csproj", "{A2E49C16-E09D-4BC8-BB36-CC4A196384E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceManager", "ResourceManager\ResourceManager.csproj", "{A2E49C16-E09D-4BC8-BB36-CC4A196384E7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{637FAC6A-6470-4B07-B80C-DD0024170E2A} = {637FAC6A-6470-4B07-B80C-DD0024170E2A}
 	EndProjectSection

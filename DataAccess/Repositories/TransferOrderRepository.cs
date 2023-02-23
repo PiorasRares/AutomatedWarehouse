@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class TransferOrderRepository:BaseRepository
+    public class TransferOrderRepository
     {
-        public TransferOrderRepository(Context context) : base(context)
+        private readonly Context _context;
+        public TransferOrderRepository(Context context)
         {
+            _context= context;
         }
 
         public List<TransferOrder> GetTransferOrders(int storageLocationId)

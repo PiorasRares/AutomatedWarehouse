@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class StorageLocationRepository:BaseRepository
+    public class StorageLocationRepository
     {
-        public StorageLocationRepository(Context context) : base(context)
+        private readonly Context _context;
+        public StorageLocationRepository(Context context)
         {
+            _context= context;
         }
 
         public List<StorageLocation> GetStorageLocations(int storageTypeId)

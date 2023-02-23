@@ -1,4 +1,6 @@
+using DataAccess.DataContext;
 using DataAccess.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System.Security.AccessControl;
 
 namespace ResourceManager
@@ -12,13 +14,12 @@ namespace ResourceManager
             StorageLocationRepository storageLocation = new StorageLocationRepository(new DataAccess.DataContext.Context());
             ContainerRepository container = new ContainerRepository(new DataAccess.DataContext.Context());
             MaterialRepository material = new MaterialRepository(new DataAccess.DataContext.Context());
-            TransferOrderRepository transferOrder = new TransferOrderRepository(new DataAccess.DataContext.Context());
+            TransferOrderRepository transferOrder = new TransferOrderRepository(new Context());
 
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
             builder.Services.AddAuthorization();
-
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

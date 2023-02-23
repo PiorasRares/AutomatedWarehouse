@@ -18,7 +18,7 @@ namespace DataAccess.DataContext
         public DbSet<TransferOrder> TransferOrders { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=PIORASRARES;Initial Catalog=Autostore;Trust Server Certificate = true;Integrated Security=True");
+            optionsBuilder.UseSqlServer("");
         }
     }
 }

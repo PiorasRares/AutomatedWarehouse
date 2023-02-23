@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class MaterialRepository:BaseRepository
+    public class MaterialRepository
     {
-        public MaterialRepository(Context context) : base(context)
+        private readonly Context _context;
+        public MaterialRepository(Context context)
         {
+            _context= context;
         }
-
         public List<Material> GetMaterials(int containerId)
         {
             return _context.Materials.Where(material => material.ContainerId == containerId).ToList();

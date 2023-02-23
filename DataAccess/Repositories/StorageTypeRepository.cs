@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class StorageTypeRepository: BaseRepository
+    public class StorageTypeRepository
     {
-        public StorageTypeRepository(Context context) : base(context)
+        private readonly Context _context;
+        public StorageTypeRepository(Context context)
         {
+            _context = context;
         }
-
         public List<StorageType> GetStorageTypes(string description)
         {
             return _context.StorageTypes.Where(type => type.Description == description).ToList();

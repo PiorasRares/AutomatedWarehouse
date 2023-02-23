@@ -72,6 +72,7 @@
                 <Label Content="{Binding Matt.Quantity}" ContentStringFormat="Quantity in Stack: {0}" Height="30"/>
             </StackPanel>
         </Border>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="816,576,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.996,-1.125" Width="324" Height="56"/>
 
 
     </Grid>

@@ -137,6 +137,17 @@ namespace PickerApp.ViewModel
                 material = value;
             }
         }
+        //Transfer Orders
+        private List<TransferOrder> transferOrders { get; set; }
+        public List<TransferOrder> TransferOrders
+        {
+            get { return transferOrders;}
+            set
+            {
+                transferOrders = value;
+                OnPropertyChanged(nameof(TransferOrders));
+            }
+        }
 
         public MainWindowViewModel()
         {
