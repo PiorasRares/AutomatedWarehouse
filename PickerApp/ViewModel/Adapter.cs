@@ -51,5 +51,6 @@ namespace PickerApp.ViewModel
             var response = client.GetAsync($"TransferOrder?storageLocationId={storageLocationId}").Result;
             return response.Content.ReadAsAsync<List<TransferOrder>>();
         }
+
     }
 }

@@ -38,6 +38,9 @@ namespace ResourceManager
 
             app.MapGet("/StorageType",(string description) => storageType.GetStorageTypes(description));
             app.MapGet("/StorageLocation",(int storageTypeId)=> storageLocation.GetStorageLocations(storageTypeId));
+            app.MapGet("/Container",(int storageLocationId)=>container.GetContainers(storageLocationId));
+            app.MapGet("/Material",(int containerId)=>material.GetMaterials(containerId));
+            app.MapGet("/TransferOrder",(int storageLocationId)=>transferOrder.GetTransferOrders(storageLocationId));
 
             app.Run();
         }

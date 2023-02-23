@@ -20,7 +20,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ListView ItemsSource="{Binding WarehouseStorageLocations}" Margin="10,41,450,232">
+        <ListView ItemsSource="{Binding WarehouseStorageLocations}" SelectedItem="{Binding SelectedWarehouseStorageLocation}" Margin="10,41,450,232">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -36,7 +36,7 @@
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>
-        <ListView ItemsSource="{Binding ProductionStorageLocations}" Margin="774,43,10,373">
+        <ListView ItemsSource="{Binding ProductionStorageLocations}" Margin="774,43,10,418">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label>
@@ -63,8 +63,16 @@
         </ComboBox>
         <Label Content="Production Storage" HorizontalAlignment="Left" Margin="775,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.005,-0.22" Width="119"/>
         <Label Content="Warehouse Storage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-9.944,0.109" Width="139"/>
-        <Label Content="Transfer Orders" HorizontalAlignment="Left" Margin="774,324,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.663,-0.931" Width="119"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="774,355,10,96"/>
+        <Label Content="Transfer Orders" HorizontalAlignment="Left" Margin="774,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.663,-0.931" Width="119"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="774,342,10,136"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="10,470,1010,93">
+            <StackPanel Margin="0,0,0,-1">
+                <Label Content="{Binding Containers.Count}" ContentStringFormat="Containers: {0}/5" Height="30"/>
+                <Label Content="{Binding Matt.Name}" ContentStringFormat="Material Name: {0}" Height="30"/>
+                <Label Content="{Binding Matt.Quantity}" ContentStringFormat="Quantity in Stack: {0}" Height="30"/>
+            </StackPanel>
+        </Border>
+
 
     </Grid>
 </Window>
