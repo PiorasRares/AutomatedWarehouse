@@ -26,7 +26,24 @@ namespace PlannerApp.Repositories
         }
         public List<StorageLocation> GetStorageLocations(int storageTypeId)
         {
-           return client.GetFromJsonAsync<List<StorageLocation>>($"/StorageLocation?storageTypeId={storageTypeId}").Result;
+            var response = client.GetStringAsync($"/StorageLocation?storageTypeId={storageTypeId}").Result;
+            return JsonConvert.DeserializeObject<List<StorageLocation>>(response);
+        }
+        public List<Material> GetMaterials()
+        {
+            var response = client.GetStringAsync($"/Material/All").Result;
+            return JsonConvert.DeserializeObject<List<Material>>(response);
+        }
+        public Container GetContainer(int storageLocationId)
+        {
+            var response = client.GetStringAsync($"/Container?storageLocationId={storageLocationId}").Result;
+            return JsonConvert.DeserializeObject<List<Container>>(response).First();
+        }
+        public void PostTransferOrder(TransferOrder transferOrder)
+        {
+            string json = JsonConvert.SerializeObject(transferOrder);
+            StringContent content = new StringContent(json,Encoding.UTF8,"application/json");
+            client.PostAsync("/TransferOrder/AddTransferOrder", content);
         }
     }
 }

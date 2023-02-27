@@ -18,7 +18,7 @@ namespace DataAccess.DataContext
         public DbSet<TransferOrder> TransferOrders { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("");
+            optionsBuilder.UseSqlServer("Server=tcp:autostoredemo.database.windows.net,1433;Initial Catalog=AutostoreDb;Persist Security Info=False;User ID=ad;Password=Johndoe16;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
     }
 }

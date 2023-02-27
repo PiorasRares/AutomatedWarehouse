@@ -1,4 +1,5 @@
-﻿using PlannerApp.Repositories;
+﻿using DataAccess.Model;
+using PlannerApp.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,5 +16,6 @@ namespace PlannerApp.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public static DataAccess.Model.Container SelectedContainer { get; set; }
     }
 }

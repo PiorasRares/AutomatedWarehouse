@@ -7,7 +7,8 @@ namespace PlannerApp
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute("Orders", typeof(Orders));
+            Routing.RegisterRoute(nameof(Orders), typeof(Orders));
+            Routing.RegisterRoute(nameof(GenerateTO), typeof(GenerateTO));
         }
     }
 }

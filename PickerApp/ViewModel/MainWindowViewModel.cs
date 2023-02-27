@@ -99,6 +99,28 @@ namespace PickerApp.ViewModel
                 OnPropertyChanged(nameof(productionStorageLocations));
             }
         }
+        private StorageLocation selectedProductionStorageLocation { get; set; }
+        public StorageLocation SelectedProductionStorageLocation
+        {
+            get { return selectedProductionStorageLocation; }
+            set
+            {
+                selectedProductionStorageLocation= value;
+                OnPropertyChanged(nameof(SelectedProductionStorageLocation));
+                try
+                {
+                    if(value!= null)
+                    {
+                        DataAccess.Model.Container container = GetContainer(value.Id).Result.First(); 
+                        TransferOrders = GetTransferOrders(container.Id).Result;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+        }
         //Container
         private List<DataAccess.Model.Container> containers { get; set; }
         public List<DataAccess.Model.Container> Containers

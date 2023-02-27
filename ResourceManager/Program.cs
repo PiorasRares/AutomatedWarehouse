@@ -1,4 +1,5 @@
 using DataAccess.DataContext;
+using DataAccess.Model;
 using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Security.AccessControl;
@@ -41,7 +42,9 @@ namespace ResourceManager
             app.MapGet("/StorageLocation",(int storageTypeId)=> storageLocation.GetStorageLocations(storageTypeId));
             app.MapGet("/Container",(int storageLocationId)=>container.GetContainers(storageLocationId));
             app.MapGet("/Material",(int containerId)=>material.GetMaterials(containerId));
-            app.MapGet("/TransferOrder",(int storageLocationId)=>transferOrder.GetTransferOrders(storageLocationId));
+            app.MapGet("/TransferOrder",(int containerId)=>transferOrder.GetTransferOrders(containerId));
+            app.MapGet("/Material/All", material.GetAllMaterials);
+            app.MapPost("/TransferOrder/AddTransferOrder",transferOrder.AddTransferOrder);
 
             app.Run();
         }

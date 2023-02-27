@@ -19,5 +19,9 @@ namespace DataAccess.Repositories
         {
             return _context.Materials.Where(material => material.ContainerId == containerId).ToList();
         }
+        public List<Material> GetAllMaterials()
+        {
+            return _context.Materials.GroupBy(material=>material.Name).Select(first=>first.First()).ToList();
+        }
     }
 }

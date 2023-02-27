@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlannerApp.View.GenerateTO"
+             xmlns:viewModel="clr-namespace:PlannerApp.ViewModel"
+             Title="N">
+    
+    <ContentPage.BindingContext>
+        <viewModel:GenerateTOViewModel/>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout>
+        <Border>
+            <StackLayout>
+                <Border HeightRequest="300">
+                    <CollectionView ItemsSource="{Binding Materials}" SelectionMode="Single" SelectedItem="{Binding SelectedMaterial}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border HeightRequest="100">
+                                    <Label Text="{Binding Name}"/>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Border>
+                <Border>
+                    <StackLayout>
+                        <Label Text="{Binding SelectedMaterial.Name}"/>
+                        <Entry Placeholder="Quantity" Text="{Binding Quantity}"/>
+                    </StackLayout>
+                </Border>
+                <Button Text="AddTo" Command="{Binding AddTo}"/>
+            </StackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

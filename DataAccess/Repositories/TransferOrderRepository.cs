@@ -16,9 +16,18 @@ namespace DataAccess.Repositories
             _context= context;
         }
 
-        public List<TransferOrder> GetTransferOrders(int storageLocationId)
+        public List<TransferOrder> GetTransferOrders(int containerId)
         {
-            return _context.TransferOrders.Where(to => to.ToContainerId == storageLocationId).ToList();
+            return _context.TransferOrders.Where(to => to.ToContainerId == containerId).ToList();
+        }
+        public void AddTransferOrder(TransferOrder item)
+        {
+            _context.TransferOrders.Add(item);
+            var container = _context.Containers.Where(container=>container.Id==item.ToContainerId).First();
+            var storageLocation = _context.StorageLocations.Where(location=>location.Id == container.StorageLocationId).First();
+            storageLocation.TOToCount++;
+            _context.StorageLocations.Update(storageLocation);
+            _context.SaveChanges();
         }
     }
 }

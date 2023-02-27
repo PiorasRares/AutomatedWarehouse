@@ -46,9 +46,9 @@ namespace PickerApp.ViewModel
             return response.Content.ReadAsAsync<List<Material>>();
         }
         //TransferOrder
-        public Task<List<TransferOrder>> GetTransferOrders(int storageLocationId)
+        public Task<List<TransferOrder>> GetTransferOrders(int containerId)
         {
-            var response = client.GetAsync($"TransferOrder?storageLocationId={storageLocationId}").Result;
+            var response = client.GetAsync($"TransferOrder?containerId={containerId}").Result;
             return response.Content.ReadAsAsync<List<TransferOrder>>();
         }
 

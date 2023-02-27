@@ -57,6 +57,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="View\GenerateTO.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\Orders.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

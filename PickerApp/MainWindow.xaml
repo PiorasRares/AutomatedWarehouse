@@ -36,7 +36,7 @@
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>
-        <ListView ItemsSource="{Binding ProductionStorageLocations}" Margin="774,43,10,418">
+        <ListView ItemsSource="{Binding ProductionStorageLocations}" SelectionMode="Single" SelectedItem="{Binding SelectedProductionStorageLocation}" Margin="774,43,10,418">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label>
@@ -64,7 +64,16 @@
         <Label Content="Production Storage" HorizontalAlignment="Left" Margin="775,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.005,-0.22" Width="119"/>
         <Label Content="Warehouse Storage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-9.944,0.109" Width="139"/>
         <Label Content="Transfer Orders" HorizontalAlignment="Left" Margin="774,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.663,-0.931" Width="119"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="774,342,10,136"/>
+        <ListView ItemsSource="{Binding TransferOrders}" Margin="774,342,10,136">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="100">
+                        <TextBlock Text="{Binding MaterialName}" FontSize="20"></TextBlock>
+                        <TextBlock Text="{Binding OrderQuantity}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <Border BorderBrush="Black" BorderThickness="1" Margin="10,470,1010,93">
             <StackPanel Margin="0,0,0,-1">
                 <Label Content="{Binding Containers.Count}" ContentStringFormat="Containers: {0}/5" Height="30"/>

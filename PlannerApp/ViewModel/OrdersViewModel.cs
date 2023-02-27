@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using DataAccess.Model;
+using PlannerApp.View;
 
 namespace PlannerApp.ViewModel
 {
@@ -40,6 +42,23 @@ namespace PlannerApp.ViewModel
                 OnPropertyChanged(nameof(StorageLocations));
             }
         }
+        private StorageLocation selectedStorageLocation { get; set; }
+        public StorageLocation SelectedStorageLocation
+        {
+            get { return selectedStorageLocation; }
+            set
+            {
+                selectedStorageLocation = value;
+                OnPropertyChanged(nameof(SelectedStorageLocation));
+                SelectedContainer = GetContainer(value.Id);
+                GoTo();
+            }
+        }
+        private async Task GoTo()
+        {
+            await Shell.Current.GoToAsync(nameof(GenerateTO));
+        }
+
         public OrdersViewModel()
         {
             StorageTypes = GetStorageTypes("Production");

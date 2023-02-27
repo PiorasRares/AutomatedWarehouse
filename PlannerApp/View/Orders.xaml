@@ -7,20 +7,27 @@
     <ContentPage.BindingContext>
         <viewModel:OrdersViewModel/>
     </ContentPage.BindingContext>
-    
-    
-    <VerticalStackLayout>
-        <Picker ItemsSource="{Binding StorageTypes}" SelectedItem="{Binding SelectedStorageType}" ItemDisplayBinding="{Binding Name}" BackgroundColor="Red" HeightRequest="150">
-        </Picker>
 
-        <ListView ItemsSource="{Binding StorageLocations}" SelectionMode="Single" BackgroundColor="Blue" HeightRequest="500">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border>
-                        <Label Text="{Binding Name}"/>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+
+    <VerticalStackLayout>
+        <Border HeightRequest="100">
+            <Picker Title="Prodcution Storage" 
+                    ItemsSource="{Binding StorageTypes}" 
+                    SelectedItem="{Binding SelectedStorageType}"
+                    ItemDisplayBinding="{Binding Name}"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"/>
+        </Border>
+        <Border HeightRequest="500">
+            <CollectionView ItemsSource="{Binding StorageLocations}" SelectionMode="Single" SelectedItem="{Binding SelectedStorageLocation}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="0,10,0,0" HeightRequest="50">
+                            <Label Text="{Binding Name}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="19" FontAttributes="Bold"/>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
     </VerticalStackLayout>
 </ContentPage>
